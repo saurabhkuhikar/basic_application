@@ -10,6 +10,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@homeUrl' => 'http://localhost:8080'
     ],
     'components' => [
         'request' => [
