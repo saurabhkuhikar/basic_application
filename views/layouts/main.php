@@ -43,6 +43,7 @@ AppAsset::register($this);
                     <li><a href="/site/contact">Contact</a></li>
                     <?php if (!Yii::$app->user->isGuest) { ?>
                         <li><a href="/account/dashboard">Dashboard</a></li>
+                        <li><a href="/account/profile">My Profile</a></li>
                         <li>
                             <form action="<?= Yii::getAlias('@homeUrl') .'/site/logout';?>" method="post">
                                 <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken; ?>">

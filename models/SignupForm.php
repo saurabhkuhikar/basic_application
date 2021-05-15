@@ -95,6 +95,7 @@ class SignupForm extends Model
         }
         return $this->_user;
     }
+
     
     /**
      * @inheritdoc
@@ -108,5 +109,5 @@ class SignupForm extends Model
             'password' => 'Password',
             'confirm_password' => 'Confirm Password'
         ];
-    }
+    }    
 }
