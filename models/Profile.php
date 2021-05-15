@@ -40,7 +40,7 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             //[['email', 'password', 'auth_key', 'mobile'], 'required'],
-            [['first_name','last_name','email', 'mobile','address'], 'required','on'=>'updateProfile'],
+            [['first_name','last_name','email', 'mobile','address','gender','state','city'], 'required','on'=>'updateProfile'],
             [['mobile'], 'integer'],
             [['email'], 'email'],
             [['created', 'updated','dob'], 'safe'],
@@ -66,7 +66,7 @@ class Profile extends \yii\db\ActiveRecord
             'password' => 'Password',
             'auth_key' => 'Auth Key',
             'mobile' => 'Mobile',
-            'dob' => 'Date of Birth'
+            'dob' => 'Date of Birth',
             'gender' => 'Gender',
             'address' => 'Address',
             'state' => 'State',

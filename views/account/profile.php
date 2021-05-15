@@ -2,6 +2,9 @@
     /* @var $this yii\web\View */
     use yii\helpers\Html;
     use yii\bootstrap\ActiveForm;
+    use yii\helpers\ArrayHelper;
+    use app\models\State;
+    use kartik\select2\Select2;
 
     $this->title = 'My Profile';
     $this->params['breadcrumbs'][] = $this->title;
@@ -42,6 +45,52 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <?= $form->field($model, 'mobile')->textInput(['autofocus' => true,'placeholder' => 'Mobile']) ?>    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">   
+                                    <?= $form->field($model, 'address')->textInput(['autofocus' => true,'placeholder' => 'Address','autocomplete' => 'offgg']) ?>    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <?php $model->gender = ($model->gender == "Male" || $model->gender == "Female")? $model->gender : Null; ?>
+                                    <?= $form->field($model, 'gender')->widget(Select2::classname(), [
+                                            'data' => ['Male' => 'Male', 'Female' => 'Female'],
+                                            'options' => ['placeholder' => 'Select Gender'],
+                                            'pluginOptions' => [
+                                                'allowClear' => true
+                                            ],
+                                        ]);
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">   
+                                    <?= $form->field($model, 'state')->widget(Select2::classname(), [
+                                            'data' => ArrayHelper::map(State::find()->all(),'state_name','state_name'),
+                                            'options' => ['placeholder' => 'Select State'],
+                                            'pluginOptions' => [
+                                                'allowClear' => true
+                                            ],
+                                        ]);
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <?= $form->field($model, 'city')->dropDownList(ArrayHelper::map(State::find()->all(),'state_name','state_name'),
+                                        [
+                                            //'options' => ['Oman1'=>['Selected'=>'Selected']],
+                                            'prompt'=>'Select State',
+                                        ]); 
+                                    ?>
                                 </div>
                             </div>
                         </div>

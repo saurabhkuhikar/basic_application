@@ -12,9 +12,6 @@ use app\models\SignupForm;
 use app\models\Profile;
 use app\models\Account;
 
-
-
-
 class AccountController extends Controller
 {
 
