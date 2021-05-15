@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 
 ?>
 <div class="account-update">
-   <?php $this->title = 'Update profile: ';?>
+   
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
