@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2021 at 02:18 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Generation Time: May 16, 2021 at 11:09 AM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -830,23 +829,25 @@ CREATE TABLE IF NOT EXISTS `user` (
   `auth_key` varchar(32) NOT NULL,
   `mobile` bigint(10) UNSIGNED ZEROFILL NOT NULL,
   `dob` date DEFAULT NULL,
+  `age` int(10) DEFAULT NULL,
   `gender` varchar(15) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `state` varchar(50) DEFAULT NULL,
   `city` varchar(50) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
-  `updated` timestamp NULL DEFAULT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `auth_key`, `mobile`, `dob`, `gender`, `address`, `state`, `city`, `status`, `created`, `updated`) VALUES
-(1, 'Saurabh', 'Kuhikar', 'sourabhkuhikar@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'ZEqWAV_H6xep77tcbEr6v3QWgrAobOAO', 8983450636, NULL, NULL, NULL, NULL, NULL, 'Enabled', '2021-05-08 11:43:24', '2021-05-08 06:13:24'),
-(2, 'Shubham', 'Yelne', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'TR3f5sDbTnk5A9OoHhTbvo41yMSdDnNL', 9518728740, NULL, NULL, NULL, NULL, NULL, 'Enabled', '2021-05-09 11:52:29', '2021-05-09 06:22:29');
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `auth_key`, `mobile`, `dob`, `age`, `gender`, `address`, `state`, `city`, `status`, `created`, `updated`) VALUES
+(1, 'Saurabh', 'Kuhikar', 'sourabhkuhikar@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'ZEqWAV_H6xep77tcbEr6v3QWgrAobOAO', 8983450636, '1999-03-25', 23, 'Male', 'old managalwari', 'Maharashtra', 'Nagpur', 'Enabled', '2021-05-08 11:43:24', '2021-05-08 06:13:24'),
+(2, 'Shubham', 'Yelne', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'TR3f5sDbTnk5A9OoHhTbvo41yMSdDnNL', 9518728740, NULL, NULL, NULL, NULL, NULL, NULL, 'Enabled', '2021-05-09 11:52:29', '2021-05-09 06:22:29'),
+(3, 'Nandini', 'kose', 'nandinikose@gmail.com', '23f474aef895fa9f10b9e5bb5ab804d5', 'IwYeAppE0oPOPHCHq3m-fWtsCfFVFRRd', 8308606145, '1998-05-14', 23, 'Female', 'new diamend nagar ', 'Maharashtra', 'Mirzapur', 'Enabled', '2021-05-16 06:49:42', '2021-05-16 10:47:37');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
