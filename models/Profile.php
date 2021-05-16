@@ -15,6 +15,7 @@ use Yii;
  * @property string $auth_key
  * @property int $mobile
  * @property string|null $dob
+ * @property string|null $age
  * @property string|null $gender
  * @property string|null $address
  * @property string|null $state
@@ -41,7 +42,7 @@ class Profile extends \yii\db\ActiveRecord
         return [
             //[['email', 'password', 'auth_key', 'mobile'], 'required'],
             [['first_name','last_name','email', 'mobile','address','gender','state','city'], 'required','on'=>'updateProfile'],
-            [['mobile'], 'integer'],
+            [['mobile','age'], 'integer'],
             [['email'], 'email'],
             [['created', 'updated','dob'], 'safe'],
             [['first_name', 'last_name', 'email', 'password', 'address', 'status'], 'string', 'max' => 255],
@@ -67,6 +68,7 @@ class Profile extends \yii\db\ActiveRecord
             'auth_key' => 'Auth Key',
             'mobile' => 'Mobile',
             'dob' => 'Date of Birth',
+            'age' => 'Age',
             'gender' => 'Gender',
             'address' => 'Address',
             'state' => 'State',

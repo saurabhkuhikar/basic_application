@@ -6,6 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use dosamigos\datepicker\DatePicker;
 
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
@@ -43,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="form-group">
                                     <?= $form->field($model, 'mobile')->textInput(['autofocus' => true,'placeholder' => 'Mobile']) ?>    
                                 </div>
-                            </div>
+                            </div>                            
                         </div>
 
                         <div class="row">
