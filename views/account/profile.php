@@ -53,18 +53,18 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <?= $form->field($model, 'dob')->widget( 
-                             DatePicker::className(),
-                             [
-                                 // inline too, not bad
-                                 'inline' => false,
-                                 // modify template for custom rendering
-                                 // 'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
-                                 'clientOptions' => [
-                                     'autoclose' => true,
-                                     'format' => 'yyyy-mm-d'
-                                 ]
-                             ]); ?>
+                            <?= $form->field($model, 'dob')->widget(DatePicker::className(),
+                                [
+                                    // inline too, not bad
+                                    'inline' => false,
+                                    // modify template for custom rendering
+                                    // 'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+                                    'clientOptions' => [
+                                        'autoclose' => true,
+                                        'format' => 'yyyy-mm-dd'
+                                    ]
+                                ]); 
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -83,12 +83,10 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <?php $model->gender = ($model->gender == "Male" || $model->gender == "Female")? $model->gender : Null; ?>
-                            <?= $form->field($model, 'gender')->widget(Select2::classname(), [
-                                            'data' => ['Male' => 'Male', 'Female' => 'Female'],
-                                            'options' => ['placeholder' => 'Select Gender'],
-                                            'pluginOptions' => [
-                                           'allowClear' => true
-                                    ],
+                            <?= $form->field($model, 'gender')->widget(Select2::classname(),[
+                                    'data' => ['Male' => 'Male', 'Female' => 'Female'],
+                                    'options' => ['placeholder' => 'Select Gender'],
+                                    'pluginOptions' => ['allowClear' => true],
                                 ]);
                             ?>
                         </div>
@@ -99,23 +97,19 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <?= $form->field($model, 'state')->widget(Select2::classname(), [
-                                            'data' => ArrayHelper::map(State::find()->all(),'state_name','state_name'),
-                                            'options' => ['placeholder' => 'Select State'],
-                                            'pluginOptions' => [
-                                            'allowClear' => true
-                                        ],
-                                    ]);
-                                ?>
+                                    'data' => ArrayHelper::map(State::find()->all(),'state_name','state_name'),
+                                    'options' => ['placeholder' => 'Select State'],
+                                    'pluginOptions' => ['allowClear' => true],
+                                ]);
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <?= $form->field($model, 'city')->widget(Select2::classname(), [
-                                        'data' => ArrayHelper::map(Cities::find()->all(),'city_name','city_name'),                                        
-                                            'options' => ['placeholder' => 'Select Cities'],
-                                            'pluginOptions' => [
-                                            'allowClear' => true
-                                    ],  
+                                    'data' => ArrayHelper::map(Cities::find()->all(),'city_name','city_name'),                                        
+                                    'options' => ['placeholder' => 'Select Cities'],
+                                    'pluginOptions' => ['allowClear' => true],  
                                 ]); 
                             ?>
                         </div>
@@ -131,6 +125,6 @@
             </div>
         </div>
     </div>
+    <div class="col-md-2"></div>
 </div>
-<div class="col-md-2"></div>
-</div>
+
