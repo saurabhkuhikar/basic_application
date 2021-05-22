@@ -19,16 +19,19 @@
             <div class="panel-heading"><?= Html::encode($this->title) ?></div>
             <div class="panel-body">
                 <?php if (Yii::$app->session->hasFlash('success')): ?>
-                <div class="alert alert-success alert-dismissable">
-                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                    <?= Yii::$app->session->getFlash('success') ?>
-                </div>
+                    <div class="alert alert-success alert-dismissable">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                        <?= Yii::$app->session->getFlash('success') ?>
+                    </div>
                 <?php endif; ?>
 
                 <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data'],'id' => 'update-profile','method' => 'post','action' => '/account/profile']); ?>
-               <div class="row">
-                    <img src="/basic_application/web/upload/1621431604.jpg" alt="Avatar" class="avatar">
-               </div>
+                
+                <?php if(!empty($model->profile)){ ?>
+                <div class="row">
+                    <img src='<?= "/upload/".$model->profile; ?>' alt="Avatar" class="avatar">
+                </div>
+                <?php } ?>
                 <div class="row">                
                     <div class="col-md-6">
                         <div class="form-group">

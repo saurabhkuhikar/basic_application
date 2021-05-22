@@ -68,14 +68,21 @@ class AccountController extends Controller
     {  
         $model = $this->findProfile(Yii::$app->user->identity->id);
         $model->setScenario('updateProfile');
-        if ($model->load(Yii::$app->request->post())) {
+        $profilePic = (isset($model->profile) && !empty($model->profile))? $model->profile : Null;
 
-            $model->profile = UploadedFile::getInstance($model,'profile');
-            $fileName = time().'.'.$model->profile->extension;
-            $model->profile->saveAs('upload/'.$fileName);
-            $model->profile = $fileName;            
-            $model->save();
-            Yii::$app->session->setFlash('success', "Profile updated successfully.");
+        if ($model->load(Yii::$app->request->post())) {
+            $profilePictureObject = UploadedFile::getInstance($model,'profile');
+            if(!empty($profilePictureObject)){
+                $model->profile = $profilePictureObject;
+                $fileName = time().'.'.$model->profile->extension;
+                $model->profile->saveAs('upload/'.$fileName);
+                $profilePic = $fileName;
+            }
+
+            $model->profile = $profilePic;
+            if($model->save()){
+                Yii::$app->session->setFlash('success', "Profile updated successfully.");
+            }
         }
         return $this->render('profile', ['model' => $model]); 
     } 
