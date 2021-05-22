@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 16, 2021 at 11:09 AM
+-- Generation Time: May 22, 2021 at 10:53 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -834,6 +834,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `address` varchar(255) DEFAULT NULL,
   `state` varchar(50) DEFAULT NULL,
   `city` varchar(50) DEFAULT NULL,
+  `profile` varchar(255) NOT NULL,
   `status` varchar(255) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -844,10 +845,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `auth_key`, `mobile`, `dob`, `age`, `gender`, `address`, `state`, `city`, `status`, `created`, `updated`) VALUES
-(1, 'Saurabh', 'Kuhikar', 'sourabhkuhikar@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'ZEqWAV_H6xep77tcbEr6v3QWgrAobOAO', 8983450636, '1999-03-25', 23, 'Male', 'old managalwari', 'Maharashtra', 'Nagpur', 'Enabled', '2021-05-08 11:43:24', '2021-05-08 06:13:24'),
-(2, 'Shubham', 'Yelne', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'TR3f5sDbTnk5A9OoHhTbvo41yMSdDnNL', 9518728740, NULL, NULL, NULL, NULL, NULL, NULL, 'Enabled', '2021-05-09 11:52:29', '2021-05-09 06:22:29'),
-(3, 'Nandini', 'kose', 'nandinikose@gmail.com', '23f474aef895fa9f10b9e5bb5ab804d5', 'IwYeAppE0oPOPHCHq3m-fWtsCfFVFRRd', 8308606145, '1998-05-14', 23, 'Female', 'new diamend nagar ', 'Maharashtra', 'Mirzapur', 'Enabled', '2021-05-16 06:49:42', '2021-05-16 10:47:37');
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `auth_key`, `mobile`, `dob`, `age`, `gender`, `address`, `state`, `city`, `profile`, `status`, `created`, `updated`) VALUES
+(1, 'Saurabh', 'Kuhikar', 'sourabhkuhikar@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'ZEqWAV_H6xep77tcbEr6v3QWgrAobOAO', 8983450636, '1999-03-25', 23, 'Male', 'old managalwari', 'Maharashtra', 'Resubelpara', '', 'Enabled', '2021-05-08 11:43:24', '2021-05-19 10:30:46'),
+(2, 'Shubham', 'Yelne', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'TR3f5sDbTnk5A9OoHhTbvo41yMSdDnNL', 9518728740, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Enabled', '2021-05-09 11:52:29', '2021-05-09 06:22:29'),
+(3, 'Nandini', 'kose', 'nandinikose@gmail.com', '23f474aef895fa9f10b9e5bb5ab804d5', 'IwYeAppE0oPOPHCHq3m-fWtsCfFVFRRd', 8308606145, '1998-05-14', 23, 'Female', 'new diamend nagar ', 'Maharashtra', 'Mumbai City', '1621431604.jpg', 'Enabled', '2021-05-16 06:49:42', '2021-05-19 13:40:04');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
