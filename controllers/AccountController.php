@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use app\models\SignupForm;
 use app\models\Profile;
 use app\models\Account;
+use yii\web\UploadedFile;
 
 class AccountController extends Controller
 {
@@ -62,12 +63,18 @@ class AccountController extends Controller
       
     }
 
-
+    // UploadedFile
     public function actionProfile()
     {  
         $model = $this->findProfile(Yii::$app->user->identity->id);
         $model->setScenario('updateProfile');
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->profile = UploadedFile::getInstance($model,'profile');
+            $fileName = time().'.'.$model->profile->extension;
+            $model->profile->saveAs('upload/'.$fileName);
+            $model->profile = $fileName;            
+            $model->save();
             Yii::$app->session->setFlash('success', "Profile updated successfully.");
         }
         return $this->render('profile', ['model' => $model]); 

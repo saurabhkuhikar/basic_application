@@ -29,6 +29,7 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    
     public static function tableName()
     {
         return 'user';
@@ -48,6 +49,7 @@ class Profile extends \yii\db\ActiveRecord
             [['first_name', 'last_name', 'email', 'password', 'address', 'status'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['gender'], 'string', 'max' => 15],
+            ['profile','file'],//extension jpg,png,pdf
             [['state', 'city'], 'string', 'max' => 50],
             [['first_name','last_name'], 'match', 'pattern' => '/^[a-zA-Z_ ]*$/', 'message' => 'Only alphabetic characters allowed'],
             ['mobile', 'match', 'pattern' =>'/^[0-9]{10}$/','message' => 'Mobile Number Must be Exactly 10 Digit.'],
@@ -76,6 +78,7 @@ class Profile extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created' => 'Created',
             'updated' => 'Updated',
+            'profile' => 'Profile',
         ];
     }
 }

@@ -25,8 +25,11 @@
                 </div>
                 <?php endif; ?>
 
-                <?php $form = ActiveForm::begin(['id' => 'update-profile','method' => 'post','action' => '/account/profile']); ?>
-                <div class="row">
+                <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data'],'id' => 'update-profile','method' => 'post','action' => '/account/profile']); ?>
+               <div class="row">
+                    <img src="/basic_application/web/upload/1621431604.jpg" alt="Avatar" class="avatar">
+               </div>
+                <div class="row">                
                     <div class="col-md-6">
                         <div class="form-group">
                             <?= $form->field($model, 'first_name')->textInput(['autofocus' => true,'placeholder' => 'First Name']) ?>
@@ -114,6 +117,12 @@
                             ?>
                         </div>
                     </div>
+               
+                <div class="col-md-6">
+                        <div class="form-group">
+                            <?= $form->field($model,'profile')->fileInput() ?>
+                        </div>
+                </div>
                 </div>
 
                 <div class="row">
